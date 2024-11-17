@@ -1,0 +1,17 @@
+<div style="display: flex; justify-content: space-between;">
+    <div class="col-lg-4">
+
+
+    </div>
+    <div class="col-lg-8">
+        <dx-data-grid #grid width="100%" height="70vh" [showBorders]="true" [dataSource]="listClientes"
+            (onRowClick)="onSelReg($event)"
+            [selection]="{mode: 'single', showCheckBoxesMode: 'always', selectAllMode: 'allPages'}"
+            [hoverStateEnabled]="true" [wordWrapEnabled]="true" [paging]="{ enabled: true, pageSize: 10 }"
+            [filterRow]="{ visible: true }" [scrolling]="{ mode: 'virtual' }">
+            <dxi-column dataField="id" caption="Codigo" width="6rem"></dxi-column>
+            <dxi-column dataField="pessoas.nomePessoa" caption="Cliente"></dxi-column>
+            <dxi-column dataField="documento" caption="Porte" width="10rem"></dxi-column>
+        </dx-data-grid>
+    </div>
+</div>

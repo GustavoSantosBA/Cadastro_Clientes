@@ -1,0 +1,74 @@
+<div id="root">
+    <div id="nav" class="nav-container d-flex">
+        <div class="nav-content d-flex">
+            <div class="logo position-relative">
+                <a href="#">
+                    <!-- <div class="img"></div> -->
+                </a>
+            </div>
+            <div class="user-container d-flex">
+                <app-user-info></app-user-info>
+            </div>
+            <ul class="list-unstyled list-inline text-center menu-icons">
+                <li class="list-inline-item">
+                    <a href="#" id="pinButton" class="pin-button">
+                        <i data-cs-icon="lock-on" class="unpin" data-cs-size="18"></i>
+                        <i data-cs-icon="lock-off" class="pin" data-cs-size="18"></i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="#" id="colorButton">
+                        <i data-cs-icon="light-on" class="light" data-cs-size="18"></i>
+                        <i data-cs-icon="light-off" class="dark" data-cs-size="18"></i>
+                    </a>
+                </li>
+            </ul>
+            <div class="menu-container flex-grow-1">
+                <app-side-bar></app-side-bar>
+            </div>
+            <div class="mobile-buttons-container">
+                <a href="#" id="scrollSpyButton" class="spy-button" data-bs-toggle="dropdown">
+                    <i data-cs-icon="menu-dropdown"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end" id="scrollSpyDropdown"></div>
+                <a href="#" id="mobileMenuButton" class="menu-button">
+                    <i data-cs-icon="menu"></i>
+                </a>
+            </div>
+        </div>
+        <div class="nav-shadow"></div>
+    </div>
+    <main>
+        <div class="container">
+            <div class="page-title-container">
+                <div class="row">
+                    <div class="col-12 col-md-7">
+                        <h1 class="mb-0 pb-0 display-4" id="title">{{pageTile}}</h1>
+                        <!-- <nav class="breadcrumb-container d-inline-block" aria-label="breadcrumb">
+                            <ul class="breadcrumb pt-0">
+                                <li class="breadcrumb-item"><a href="Dashboards.Default.html">Home</a></li>
+                                <li class="breadcrumb-item"><a href="Pages.html">Pages</a></li>
+                                <li class="breadcrumb-item"><a href="Pages.Miscellaneous.html">Miscellaneous</a>
+                                </li>
+                            </ul>
+                        </nav> -->
+                    </div>
+                </div>
+            </div>
+            <!-- <h2 class="small-title">Content Title</h2> -->
+            <div class="card mb-5">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </main>
+</div>
+<app-layout-custom></app-layout-custom>
+<div class="settings-buttons-container">
+    <button type="button" class="btn settings-button btn-primary p-0" data-bs-toggle="modal" data-bs-target="#settings"
+        id="settingsButton">
+        <span class="d-inline-block no-delay" data-bs-delay="0" data-bs-offset="0,3" data-bs-toggle="tooltip"
+            data-bs-placement="left" title="Configurações">
+            <i data-cs-icon="paint-roller" class="position-relative"></i>
+        </span>
+    </button>
+</div>

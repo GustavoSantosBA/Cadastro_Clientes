@@ -1,10 +1,20 @@
 import { Component } from '@angular/core';
+import * as ptMessages from "devextreme/localization/messages/pt.json";
+import { locale, loadMessages } from "devextreme/localization";
+import localePt from '@angular/common/locales/pt';
+import {registerLocaleData} from '@angular/common';
+registerLocaleData(localePt, 'pt');
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Cadastro_Clientes';
+  title = 'cirrateios';
+
+  constructor(){
+    loadMessages(ptMessages);
+    locale("pt");
+  }
 }

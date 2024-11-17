@@ -1,0 +1,19 @@
+<ul id="menu" class="menu">
+    <li *ngFor="let itensMenu of menus">
+        <a *ngIf="itensMenu.subMenu.length == 0" href="#" [routerLink]="itensMenu.routerLink">
+            <i [attr.data-cs-icon]="itensMenu.icone" class="icon" data-cs-size="18"></i>
+            <span class="label">{{itensMenu.label}}</span>
+        </a>
+        <a *ngIf="itensMenu.subMenu.length > 0" [href]="'#'+itensMenu.id" data-href="#">
+            <i [attr.data-cs-icon]="itensMenu.icone" class="icon" data-cs-size="18"></i>
+            <span class="label">{{itensMenu.label}}</span>
+        </a>
+        <ul [id]="itensMenu.id" *ngIf="itensMenu.subMenu.length > 0">
+            <li *ngFor="let subItem of itensMenu.subMenu">
+                <a href="#" [routerLink]="subItem.routerLink">
+                    <span class="label">{{ subItem.label }}</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+</ul>
