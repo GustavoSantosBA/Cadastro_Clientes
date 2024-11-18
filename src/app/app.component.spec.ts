@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'cirrateios'`, () => {
+  it(`should have as title 'cadastroClientes'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('cirrateios');
+    expect(app.title).toEqual('cadastroClientes');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('cirrateios app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('cadastroClientes app is running!');
   });
 });

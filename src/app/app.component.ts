@@ -11,7 +11,7 @@ registerLocaleData(localePt, 'pt');
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'cirrateios';
+  title = 'CadastroClientes';
 
   constructor(){
     loadMessages(ptMessages);
