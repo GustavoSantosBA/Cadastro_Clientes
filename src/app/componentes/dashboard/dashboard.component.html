@@ -1,17 +1,46 @@
 <div style="display: flex; justify-content: space-between;">
-    <div class="col-lg-4">
-
-
+    <div class="col-lg-3 p-3">
+        <h4>Estatística</h4>
+        <div class="mb-5 p-2">
+            <div class="row g-2">
+                <div class="col-12" *ngFor="let item of panoramaData">
+                    <div class="card hover-scale-up cursor-pointer sh-19">
+                        <div class="h-100 d-flex flex-column justify-content-between card-body align-items-center">
+                            <div
+                                class="bg-gradient-light sh-5 sw-5 rounded-xl d-flex justify-content-center align-items-center mb-2">
+                            </div>
+                            <div class="heading text-center mb-0 d-flex align-items-center lh-1">
+                                {{getPorteDaEmpresaName(item.porteDaEmpresa)}}
+                            </div>
+                            <div class="text-large text-primary">{{item.quantidade}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-lg-8">
+    <div class="col-lg-9">
+        <div style="text-align: right;">
+            <button class="btn btn-primary" style="margin-bottom: 5px;" (click)="newCliente()">
+                <i class="fa fa-file"></i>Novo Cliente
+            </button>
+        </div>
         <dx-data-grid #grid width="100%" height="70vh" [showBorders]="true" [dataSource]="listClientes"
             (onRowClick)="onSelReg($event)"
             [selection]="{mode: 'single', showCheckBoxesMode: 'always', selectAllMode: 'allPages'}"
             [hoverStateEnabled]="true" [wordWrapEnabled]="true" [paging]="{ enabled: true, pageSize: 10 }"
             [filterRow]="{ visible: true }" [scrolling]="{ mode: 'virtual' }">
+            <dxi-column type="buttons" width="4rem">
+                <dxi-button hint="Editar" icon="edit" [onClick]="onEdit"></dxi-button>
+                <dxi-button hint="Excluir" icon="trash" [onClick]="onDelete"></dxi-button>
+            </dxi-column>
             <dxi-column dataField="id" caption="Codigo" width="6rem"></dxi-column>
-            <dxi-column dataField="pessoas.nomePessoa" caption="Cliente"></dxi-column>
-            <dxi-column dataField="documento" caption="Porte" width="10rem"></dxi-column>
+            <dxi-column dataField="nomeEmpresa" caption="Cliente"></dxi-column>
+            <dxi-column dataField="porteDaEmpresa" caption="Porte" width="10rem">
+                <dxo-lookup [dataSource]="porteDaEmpresaLookup" valueExpr="value" displayExpr="name"></dxo-lookup>
+            </dxi-column>
         </dx-data-grid>
     </div>
 </div>
+
+<app-cadastrar-cliente [popupVisible]="popUpVisible" (onCloseModal)="closeModal()" [clientesData]="cliente"></app-cadastrar-cliente>

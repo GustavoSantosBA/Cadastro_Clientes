@@ -31,6 +31,8 @@
             ],
             "styles": [
               "node_modules/devextreme/dist/css/dx.light.css",
+              "node_modules/devextreme/dist/css/dx.dark.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css",
               "src/styles.scss"
             ],
             "scripts": []
